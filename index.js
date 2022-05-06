@@ -3,7 +3,7 @@ import mongoose from 'mongoose'
 import router from "./router.js"
 import fileUpload from 'express-fileupload'
 
-const PORT = 5000
+const PORT = process.env.PORT || 5000
 const DB_URL = 'mongodb+srv://user:groyam3867@cluster0.huw7x.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 
 const app = express()
