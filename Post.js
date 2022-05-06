@@ -1,7 +1,6 @@
 import mongoose from "mongoose"
 
 const Post = new mongoose.Schema({
-	_id: {type: String, required: false},
 	info: {type: Object, required: true},
 	isImportant: {type: Boolean, required: true},
 	isDone: {type: Boolean, required: true}
