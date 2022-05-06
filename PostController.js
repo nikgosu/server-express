@@ -13,6 +13,9 @@ class PostController {
 	async getAll(req, res) {
 		try {
 			const posts = await PostService.getAll()
+			res.header('Access-Control-Allow-Origin', "*");
+			res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+			res.header('Access-Control-Allow-Headers', 'Content-Type');
 			return res.json(posts)
 		} catch (e) {
 			res.status(500).json(e.message)
