@@ -1,10 +1,11 @@
-
-import PostService from "./PostService.js"
+import FileService from "./fileService.js"
+import fileService from "./fileService.js"
 
 class PostController {
 	async create(req, res) {
 		try {
-			const post = await PostService.create(req.body, req.files.picture)
+			const post = req.body
+			FileService.create(post)
 			res.json(post)
 		} catch (e) {
 			res.status(500).json(e.message)
@@ -12,7 +13,7 @@ class PostController {
 	}
 	async getAll(req, res) {
 		try {
-			const posts = await PostService.getAll()
+			const posts = fileService.getAll()
 			return res.json(posts)
 		} catch (e) {
 			res.status(500).json(e.message)
@@ -20,7 +21,7 @@ class PostController {
 	}
 	async getOne(req, res) {
 		try {
-			const post = await PostService.getOne(req.params.id)
+			const post = fileService.getOne(req.params.id)
 			return res.json(post)
 		} catch (e) {
 			res.status(500).json(e.message)
@@ -28,7 +29,7 @@ class PostController {
 	}
 	async update(req, res) {
 		try {
-			const updatedPost = await PostService.update(req.body)
+			const updatedPost = fileService.update(req.body)
 			return res.json(updatedPost)
 		} catch (e) {
 			res.status(500).json(e.message)
@@ -36,7 +37,7 @@ class PostController {
 	}
 	async delete(req, res) {
 		try {
-			const deletedPost = await PostService.delete(req.params.id)
+			const deletedPost = fileService.delete(req.params.id)
 			return res.json(deletedPost)
 		} catch (e) {
 			res.status(500).json(e.message)
