@@ -4,6 +4,7 @@ import TodoService from "./TodoService.js"
 class TodoController{
 	async create(req, res) {
 		try {
+			res.header("Access-Control-Allow-Origin", "*");
 			const todo = await TodoService.create(req.body)
 			res.json(todo)
 		} catch (e) {
