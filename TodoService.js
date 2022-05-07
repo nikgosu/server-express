@@ -2,7 +2,7 @@ import Todo from "./Todo.js"
 
 class TodoService {
 	async create(todo) {
-		return await Todo.create({...todo})
+		return await Todo.create(todo)
 	}
 	async getAll() {
 		return Todo.find()
