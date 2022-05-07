@@ -1,50 +1,50 @@
 
-import PostService from "./PostService.js"
+import TodoService from "./TodoService.js"
 
-class PostController {
+class TodoController{
 	async create(req, res) {
 		try {
-			const post = await PostService.create(req.body)
-			res.json(post)
+			const todo = await TodoService.create(req.body)
+			res.json(todo)
 		} catch (e) {
 			res.status(500).json(e.message)
 		}
 	}
 	async getAll(req, res) {
 		try {
-			const posts = await PostService.getAll()
+			const todos = await TodoService.getAll()
 			res.header('Access-Control-Allow-Origin', "*");
 			res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
 			res.header('Access-Control-Allow-Headers', 'Content-Type');
-			return res.json(posts)
+			return res.json(todos)
 		} catch (e) {
 			res.status(500).json(e.message)
 		}
 	}
 	async getOne(req, res) {
 		try {
-			const post = await PostService.getOne(req.params.id)
-			return res.json(post)
+			const todo = await TodoService.getOne(req.params.id)
+			return res.json(todo)
 		} catch (e) {
 			res.status(500).json(e.message)
 		}
 	}
 	async update(req, res) {
 		try {
-			const updatedPost = await PostService.update(req.body)
-			return res.json(updatedPost)
+			const updatedTodo = await TodoService.update(req.body)
+			return res.json(updatedTodo)
 		} catch (e) {
 			res.status(500).json(e.message)
 		}
 	}
 	async delete(req, res) {
 		try {
-			const deletedPost = await PostService.delete(req.params.id)
-			return res.json(deletedPost)
+			const deletedTodo = await TodoService.delete(req.params.id)
+			return res.json(deletedTodo)
 		} catch (e) {
 			res.status(500).json(e.message)
 		}
 	}
 }
 
-export default new PostController()
+export default new TodoController()

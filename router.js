@@ -1,12 +1,12 @@
 import Router from 'express'
-import PostController from "./PostController.js"
+import TodoController from "./TodoController.js"
 
 const router = Router()
 
-router.post('/posts', PostController.create)
-router.get('/posts', PostController.getAll)
-router.get('/posts/:id', PostController.getOne)
-router.put('/posts', PostController.update)
-router.delete('/posts/:id', PostController.delete)
+router.post('/todos', TodoController.create)
+router.get('/todos', TodoController.getAll)
+router.get('/todos/:id', TodoController.getOne)
+router.put('/todos', TodoController.update)
+router.delete('/todos/:id', TodoController.delete)
 
 export default router
