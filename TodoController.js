@@ -6,7 +6,7 @@ class TodoController{
 		try {
 			res.header("Access-Control-Allow-Origin", "*");
 			res.header("Access-Control-Allow-Methods: GET, DELETE, POST, PUT");
-			const todo = await TodoService.create(JSON.parse(req.body))
+			const todo = await TodoService.create(req.body)
 			res.json(todo)
 		} catch (e) {
 			res.status(500).json(e.message)
