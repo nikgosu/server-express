@@ -5,6 +5,8 @@ class TodoController{
 	async create(req, res) {
 		try {
 			res.header("Access-Control-Allow-Origin", "*");
+			res.header("Access-Control-Allow-Methods: GET, DELETE, POST, PUT");
+			res.header('Access-Control-Allow-Headers', 'Content-Type');
 			const todo = await TodoService.create(req.body)
 			res.json(todo)
 		} catch (e) {
