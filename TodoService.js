@@ -11,6 +11,7 @@ class TodoService {
 		if (!id) {
 			throw new Error('id not found')
 		}
+		console.log(Todo.findById(id))
 		return Todo.findById(id)
 	}
 	async update(todo) {
