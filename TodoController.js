@@ -27,6 +27,10 @@ class TodoController{
 						message: 'Password is not valid'
 					})
 				}
+			} else {
+				res.status(400).json({
+					message: 'User is not valid'
+				})
 			}
 		} catch (e) {
 			res.status(400).json({message: 'Login error'})
